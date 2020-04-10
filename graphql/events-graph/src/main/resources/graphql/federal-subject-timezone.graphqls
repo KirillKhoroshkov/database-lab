@@ -1,0 +1,17 @@
+
+type FederalSubjectTimezone {
+    id: Int!
+    federalSubject: FederalSubject!
+    utcOffset: Int!
+    localities: [Locality]!
+}
+
+extend type Query {
+    federalSubjectTimezones(page: Int!, size: Int!): [FederalSubjectTimezone]!
+    federalSubjectTimezone(id: Int!): FederalSubjectTimezone
+}
+
+extend type Mutation {
+    newFederalSubjectTimezone(federalSubjectId: Int!, utcOffset: Int!): FederalSubjectTimezone
+    deleteFederalSubjectTimezone(id: Int!): Boolean!
+}

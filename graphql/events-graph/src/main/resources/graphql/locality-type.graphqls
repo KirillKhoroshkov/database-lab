@@ -1,0 +1,17 @@
+
+type LocalityType {
+    id: Int!
+    name: String!
+    abbreviation: String!
+    localities: [Locality]
+}
+
+extend type Query {
+    localityTypes(page: Int!, size: Int!): [LocalityType]!
+    localityType(id: Int!): LocalityType
+}
+
+extend type Mutation {
+    newLocalityType(name: String!, abbreviation: String!): LocalityType
+    deleteLocalityType(id: Int!): Boolean!
+}

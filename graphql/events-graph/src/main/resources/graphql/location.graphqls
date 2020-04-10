@@ -1,0 +1,18 @@
+
+type Location {
+    id: Int!
+    place: Place!
+    name: String
+    mapURL: String
+    clarifications: [Clarification]!
+}
+
+extend type Query {
+    locations(page: Int!, size: Int!): [Location]!
+    location(id: Int!): Location
+}
+
+extend type Mutation {
+    newLocation(placeId: Int!, name: String, mapURL: String): Location
+    deleteLocation(id: Int!): Boolean!
+}

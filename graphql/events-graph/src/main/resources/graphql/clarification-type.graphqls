@@ -1,0 +1,18 @@
+
+type ClarificationType {
+    id: Int!
+    name: String!
+    abbreviation: String!
+    outputOrder: Int!
+    clarifications: [Clarification]!
+}
+
+extend type Query {
+    clarificationTypes(page: Int!, size: Int!): [ClarificationType]!
+    clarificationType(id: Int!): ClarificationType
+}
+
+extend type Mutation {
+    newClarificationType(name: String!, abbreviation: String!, outputOrder: Int!): ClarificationType
+    deleteClarificationType(id: Int!): Boolean!
+}

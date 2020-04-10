@@ -1,0 +1,17 @@
+
+type FederalSubject {
+    id: Int!
+    name: String!
+    type: FederalSubjectType!
+    timezones: [FederalSubjectTimezone]!
+}
+
+extend type Query {
+    federalSubjects(page: Int!, size: Int!): [FederalSubject]!
+    federalSubject(id: Int!): FederalSubject
+}
+
+extend type Mutation {
+    newFederalSubject(name: String!, typeId: Int!): FederalSubject
+    deleteFederalSubject(id: Int!): Boolean!
+}

@@ -1,0 +1,21 @@
+
+type Locality {
+    id: Int!
+    name: String!
+    type: LocalityType!
+    federalSubjectTimezone: FederalSubjectTimezone!
+    places: [Place]!
+}
+
+extend type Query {
+    localities(page: Int!, size: Int!): [Locality]!
+    locality(id: Int!): Locality
+}
+
+extend type Mutation {
+    newLocality(name: String!, typeId: Int!, federalSubjectTimezoneId: Int!): Locality
+    deleteLocality(id: Int!): Boolean!
+    setLocalityName(id: Int!, name: String!): Locality
+    setLocalityType(id: Int!, typeId: Int!): Locality
+    setLocalityFederalSubjectTimezone(id: Int!, federalSubjectTimezoneId: Int!): Locality
+}

@@ -1,0 +1,17 @@
+
+type FederalSubjectType {
+    id: Int!
+    name: String!
+    abbreviation: String!
+    federalSubjects: [FederalSubject]!
+}
+
+extend type Query {
+    federalSubjectTypes(page: Int!, size: Int!): [FederalSubjectType]!
+    federalSubjectType(id: Int!): FederalSubjectType
+}
+
+extend type Mutation {
+    newFederalSubjectType(name: String!, abbreviation: String!): FederalSubjectType
+    deleteFederalSubjectType(id: Int!): Boolean!
+}

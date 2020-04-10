@@ -1,0 +1,18 @@
+
+type Clarification {
+    id: Int!
+    place: Place!
+    type: ClarificationType!
+    value: String!
+    locations: [Location]!
+}
+
+extend type Query {
+    clarifications(page: Int!, size: Int!): [Clarification]!
+    clarification(id: Int!): Clarification
+}
+
+extend type Mutation {
+    newClarification(placeId: Int!, typeId: Short!, value: String!): Clarification
+    deleteClarification(id: Int!): Boolean!
+}

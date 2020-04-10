@@ -1,0 +1,19 @@
+
+type Place {
+    id: Int!
+    name: String!
+    type: PlaceType!
+    locality: Locality!
+    locations: [Location]!
+    clarifications: [Clarification]!
+}
+
+extend type Query {
+    places(page: Int!, size: Int!): [Place]!
+    place(id: Int!): Place
+}
+
+extend type Mutation {
+    newPlace(name: String!, typeId: Int!, localityId: Int!): Place
+    deletePlace(id: Int!): Boolean!
+}
